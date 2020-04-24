@@ -12,8 +12,7 @@ hello world
  |
 
 2 + 2 = 4
-${'  '}
-''';
+${'  '}''';
 
 void main() {
   test('shouldRun', () async {
@@ -54,6 +53,22 @@ void main() {
         .multilineAsync();
     expect(value.length, _template.length);
     expect(value, _template);
+  });
+
+  test('empty', () async {
+    final String value = await ''.multilineAsync();
+    expect(value.isEmpty, true);
+    expect(value, '');
+  });
+
+  test('notEmpty', () async {
+    final String value = await '''
+    |
+    |
+    '''
+        .multilineAsync();
+    expect(value.isNotEmpty, true);
+    expect(value, '\n');
   });
 
   test('print', () async {

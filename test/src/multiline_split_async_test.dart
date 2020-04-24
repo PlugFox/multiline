@@ -12,8 +12,7 @@ hello world
  |
 
 2 + 2 = 4
-${'  '}
-'''
+${'  '}'''
     .split('\n');
 
 void main() {
@@ -58,6 +57,23 @@ void main() {
         .toList();
     expect(value.length, _template.length);
     expect(value, _template);
+  });
+
+  test('empty', () async {
+    final List<String> value = await ''.multilineSplitAsync().toList();
+    expect(value.isEmpty, true);
+    expect(value, <String>[]);
+  });
+
+  test('notEmpty', () async {
+    final List<String> value = await '''
+    |
+    |
+    '''
+        .multilineSplitAsync()
+        .toList();
+    expect(value.isNotEmpty, true);
+    expect(value, <String>['', '']);
   });
 
   test('print', () async {

@@ -12,16 +12,22 @@ class SynchronousMultilineTransformer {
   /// split and process
   Iterable<String> split(String sourceString) sync* {
     final List<String> _list = sourceString.split('\n');
-    for (final String _s in _list) {
-      yield replace(_s);
+    for (String _s in _list) {
+      _s = replace(_s);
+      if (_s != null) {
+        yield _s;
+      }
     }
   }
 
-  /// Trim left and '|' symbol
+  /// Trim left and ['|'] symbol
+  /// return [null] if empty and not contain symbol
   String replace(String sourceString) {
     sourceString = sourceString.trimLeft();
     if (sourceString.isNotEmpty && sourceString[0] == r'|') {
       return sourceString.substring(1);
+    } else if (sourceString.isEmpty) {
+      return null;
     }
     return sourceString;
   }
@@ -53,7 +59,12 @@ class MultilineTransformer implements StreamTransformer<String, String> {
       sync: true,
     ) as SynchronousStreamController<String>;
     subscription = sourceStream.transform(const LineSplitter()).listen(
-        (String v) => controller.add(_syncTransformer.replace(v)),
+        (String v) {
+      v = _syncTransformer.replace(v);
+      if (v != null) {
+        controller.add(v);
+      }
+    },
         cancelOnError: _cancelOnError,
         onDone: controller.close,
         onError: controller.addError);

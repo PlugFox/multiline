@@ -12,8 +12,7 @@ hello world
  |
 
 2 + 2 = 4
-${'  '}
-'''
+${'  '}'''
     .split('\n');
 
 void main() {
@@ -58,6 +57,23 @@ void main() {
         .toList();
     expect(value.length, _template.length);
     expect(value, _template);
+  });
+
+  test('empty', () {
+    final List<String> value = ''.multilineSplit().toList();
+    expect(value.isEmpty, true);
+    expect(value, <String>[]);
+  });
+
+  test('notEmpty', () {
+    final List<String> value = '''
+    |
+    |
+    '''
+        .multilineSplit()
+        .toList();
+    expect(value.isNotEmpty, true);
+    expect(value, <String>['', '']);
   });
 
   test('print', () {

@@ -12,8 +12,7 @@ hello world
  |
 
 2 + 2 = 4
-${'  '}
-''';
+${'  '}''';
 
 void main() {
   test('shouldRun', () {
@@ -54,6 +53,22 @@ void main() {
         .multiline();
     expect(value.length, _template.length);
     expect(value, _template);
+  });
+
+  test('empty', () {
+    final String value = ''.multiline();
+    expect(value.isEmpty, true);
+    expect(value, '');
+  });
+
+  test('notEmpty', () {
+    final String value = '''
+    |
+    |
+    '''
+        .multiline();
+    expect(value.isNotEmpty, true);
+    expect(value, '\n');
   });
 
   test('print', () {
