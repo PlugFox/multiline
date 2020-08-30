@@ -29,8 +29,7 @@ void main() {
     |
     |2 + 2 = 4
     |${'  '}
-    '''
-        .multiline();
+    '''.multiline();
     expect(value.length, _template.length);
     expect(value, _template);
   });
@@ -45,15 +44,14 @@ void main() {
     |
     |2 + 2 = ${2 + 2}
     |${'  '}
-    '''
-        .multiline();
+    '''.multiline();
     expect(value.length, _template.length);
     expect(value, _template);
   });
 
   test('empty', () {
     final value = ''.multiline();
-    expect(value.isEmpty, true);
+    expect(value.isEmpty, isTrue);
     expect(value, '');
   });
 
@@ -61,17 +59,15 @@ void main() {
     final value = '''
     |
     |
-    '''
-        .multiline();
-    expect(value.isNotEmpty, true);
+    '''.multiline();
+    expect(value.isNotEmpty, isTrue);
     expect(value, '\n');
   });
 
   test('print', () {
     final value = '''
     |hello world
-    '''
-        .multiline();
+    '''.multiline();
     print('Print for multiline:\n$value');
   });
 }

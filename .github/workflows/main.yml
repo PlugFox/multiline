@@ -14,18 +14,18 @@ jobs:
       - name: Install Dependencies
         run: pub get
       - name: Format
-        run: dartfmt --dry-run --set-exit-if-changed lib test
+        run: dartfmt --dry-run --set-exit-if-changed lib
       - name: Run analyzer
         run: dartanalyzer --fatal-infos --fatal-warnings lib example test
       - name: Run tests
-        run: pub run test_coverage
+        run: pub run test_coverage --no-badge --print-test-output --min-coverage 0
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
       - name: Check Code Coverage
         uses: ChicagoFlutter/lcov-cop@v1.0.2
         with:
           path: coverage/lcov.info
           min_coverage: 100
           exclude: "**/*.g.dart"
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}

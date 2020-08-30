@@ -12,17 +12,11 @@ hello world
  |
 
 2 + 2 = 4
-${'  '}'''
-    .split('\n');
+${'  '}'''.split('\n');
 
 void main() {
   test('shouldRun', () {
-    '''
-    |hello world
-    '''
-        .multilineSplit()
-        .toList();
-    expect(true, true);
+    expect(() => ''.multilineSplit().toList(), returnsNormally);
   });
 
   test('identical', () {
@@ -35,9 +29,7 @@ void main() {
     |
     |2 + 2 = 4
     |${'  '}
-    '''
-        .multilineSplit()
-        .toList();
+    '''.multilineSplit().toList();
     expect(value.length, _template.length);
     expect(value, _template);
   });
@@ -52,16 +44,14 @@ void main() {
     |
     |2 + 2 = ${2 + 2}
     |${'  '}
-    '''
-        .multilineSplit()
-        .toList();
+    '''.multilineSplit().toList();
     expect(value.length, _template.length);
     expect(value, _template);
   });
 
   test('empty', () {
     final value = ''.multilineSplit().toList();
-    expect(value.isEmpty, true);
+    expect(value.isEmpty, isTrue);
     expect(value, <String>[]);
   });
 
@@ -69,19 +59,15 @@ void main() {
     final value = '''
     |
     |
-    '''
-        .multilineSplit()
-        .toList();
-    expect(value.isNotEmpty, true);
+    '''.multilineSplit().toList();
+    expect(value.isNotEmpty, isTrue);
     expect(value, <String>['', '']);
   });
 
   test('print', () {
     final value = '''
     |hello world
-    '''
-        .multilineSplit()
-        .toList();
+    '''.multilineSplit().toList();
     print('Print for multiline split:\n$value');
   });
 }
