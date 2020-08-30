@@ -10,8 +10,8 @@ import 'pipe_line_splitter.dart';
 /// extensions to the String methods.
 extension MultilineString on String {
   /// Return formatted with pipeline symbol "`|`" [String].
-  String multiline({String pipeline = '|', String separator = '\n'}) =>
-      pipeLineSplitter(this, pipeline: pipeline).join(separator);
+  String multiline({String pipeline = '|', String join = '\n'}) =>
+      pipeLineSplitter(this, pipeline: pipeline).join(join);
 
   /// Split lines into individual lines
   /// and returns a [Iterable] of substrings.

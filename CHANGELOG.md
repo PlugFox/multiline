@@ -2,6 +2,8 @@
 ### Added  
 - 100% test coverage  
 - Pretty sql query example  
+- Pipeline symbol optional argument  
+- Join symbol optional argument  
   
 ### Changed  
 - Refactoring and new lints (pedantic + effective dart)  

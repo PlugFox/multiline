@@ -123,7 +123,7 @@ void main() {
     /a
     /b
     /c
-    '''.multiline(pipeline: '/', separator: ',');
+    '''.multiline(pipeline: '/', join: ',');
     expect(value, 'a,b,c');
   });
 
