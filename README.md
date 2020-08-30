@@ -19,11 +19,13 @@ Beautiful code formatting using some useful extensions to the String methods.
   
 Available method extensions:  
   
-  + `multiline()`      - return formatted with pipeline symbol "`|`" `String`. 
+  + `multiline()`      - return formatted with pipeline symbol "`|`" `String`.  
   
-  + `multilineSplit()` - splits the string and returns a `Iterable<String>` of substrings.
+  + `multilineSplit()` - splits the string and returns a `Iterable<String>` of substrings.  
   
-    
+You can use custom "pipeline" and "join" symbols.  
+  
+  
 ## For example  
   
 ```dart
