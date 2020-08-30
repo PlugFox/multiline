@@ -1,7 +1,7 @@
 // Character constants.
-const int _lf = 10;
-const int _cr = 13;
-const int _vt = 124;
+const int _lf = 10;  // /n
+const int _cr = 13;  // /r
+const int _vt = 124; // |
 
 /// Split lines into individual lines.
 Iterable<String> pipeLineSplitter(String lines) sync* {
@@ -11,9 +11,9 @@ Iterable<String> pipeLineSplitter(String lines) sync* {
   for (var i = 0; i < length; i++) {
     final previousChar = char;
     char = lines.codeUnitAt(i);
-    if (char != _cr) {
-      if (char != _lf) continue;
-      if (previousChar == _cr) {
+    if (char != _cr) { // <> /r
+      if (char != _lf) continue; // <> /n
+      if (previousChar == _cr) { // == /r
         sliceStart = i + 1;
         continue;
       }

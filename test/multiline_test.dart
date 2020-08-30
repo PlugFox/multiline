@@ -64,6 +64,60 @@ void main() {
     expect(value, '\n');
   });
 
+  test('String contain n symbols', () {
+    final value = '''
+    |1\n|2
+    |3\n|4
+    '''.multiline();
+    expect(value, '1\n2\n3\n4');
+  });
+
+  test('String contain r and n symbols', () {
+    final value = '''
+    |1\r\n|2
+    |3\r\n|4
+    '''.multiline();
+    expect(value, '1\n2\n3\n4');
+  });
+
+  test('String contain r symbols', () {
+    final value = '''
+    |1\r|2
+    |3\r|4
+    '''.multiline();
+    expect(value, '1\n2\n3\n4');
+  });
+
+  test('Try parse last', () {
+    final value = '''
+    |1
+    |2
+    |3
+    line without pipe
+    '''.multiline();
+    expect(int.parse(value.split('\n').last), 3);
+  });
+
+  test('Same multiline string', () {
+    final value1 = '''1 '''.multiline();
+    final value2 = '''
+    |1 '''.multiline();
+    // ignore: leading_newlines_in_multiline_strings
+    final value3 = '''1
+    | '''.multiline();
+    final value4 = '''|1 '''.multiline();
+
+    expect(value1, '');
+    expect(value2, '1 ');
+    expect(value3, ' ');
+    expect(value4, '1 ');
+  });
+
+  test('rn then value', () {
+    final value = '\r\n|1'.multiline();
+    expect(value, '1');
+  });
+
   test('print', () {
     final value = '''
     |hello world

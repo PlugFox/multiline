@@ -20,7 +20,7 @@ void main() {
   });
 
   test('identical', () {
-    final value = '''
+    final values = '''
     |
     |hello world
     | with space
@@ -30,12 +30,12 @@ void main() {
     |2 + 2 = 4
     |${'  '}
     '''.multilineSplit().toList();
-    expect(value.length, _template.length);
-    expect(value, _template);
+    expect(values.length, _template.length);
+    expect(values, _template);
   });
 
   test('withParam', () {
-    final value = '''
+    final values = '''
     |
     |hello world
     | with space
@@ -45,29 +45,68 @@ void main() {
     |2 + 2 = ${2 + 2}
     |${'  '}
     '''.multilineSplit().toList();
-    expect(value.length, _template.length);
-    expect(value, _template);
+    expect(values.length, _template.length);
+    expect(values, _template);
   });
 
   test('empty', () {
-    final value = ''.multilineSplit().toList();
-    expect(value.isEmpty, isTrue);
-    expect(value, <String>[]);
+    final values = ''.multilineSplit().toList();
+    expect(values.isEmpty, isTrue);
+    expect(values, <String>[]);
+  });
+
+  test('String contain n symbols', () {
+    final values = '''
+    |1\n|2
+    |3\n|4
+    '''.multilineSplit().toList();
+    expect(values, ['1', '2', '3', '4']);
+  });
+
+  test('String contain r and n symbols', () {
+    final values = '''
+    |1\r\n|2
+    |3\r\n|4
+    '''.multilineSplit().toList();
+    expect(values, ['1', '2', '3', '4']);
+  });
+
+  test('String contain r symbols', () {
+    final values = '''
+    |1\r|2
+    |3\r|4
+    '''.multilineSplit().toList();
+    expect(values, ['1', '2', '3', '4']);
+  });
+
+  test('Try parse last', () {
+    final values = '''
+    |1
+    |2
+    |3
+    line without pipe
+    '''.multilineSplit();
+    expect(int.parse(values.last), 3);
   });
 
   test('notEmpty', () {
-    final value = '''
+    final values = '''
     |
     |
     '''.multilineSplit().toList();
-    expect(value.isNotEmpty, isTrue);
-    expect(value, <String>['', '']);
+    expect(values.isNotEmpty, isTrue);
+    expect(values, <String>['', '']);
+  });
+
+  test('rn then value', () {
+    final value = '\r\n|1'.multilineSplit();
+    expect(value, ['1']);
   });
 
   test('print', () {
-    final value = '''
+    final values = '''
     |hello world
     '''.multilineSplit().toList();
-    print('Print for multiline split:\n$value');
+    print('Print for multiline split:\n$values');
   });
 }
