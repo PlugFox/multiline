@@ -1,7 +1,7 @@
 name: multiline
 description: >
   Provides convenient access to multiline String records with method extensions.
-version: 2.0.0-dev
+version: 2.0.0
 repository: https://github.com/PlugFox/multiline/tree/master
 issue_tracker: https://github.com/PlugFox/multiline/issues
 homepage: https://github.com/PlugFox/multiline
