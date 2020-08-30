@@ -118,10 +118,22 @@ void main() {
     expect(value, '1');
   });
 
+  test('pipeline and separator symbols', () {
+    final value = '''
+    /a
+    /b
+    /c
+    '''.multiline(pipeline: '/', separator: ',');
+    expect(value, 'a,b,c');
+  });
+
   test('print', () {
     final value = '''
     |hello world
     '''.multiline();
-    print('Print for multiline:\n$value');
+    expect(
+      () => print('Print for multiline split:\n$value'),
+      returnsNormally,
+    );
   });
 }
