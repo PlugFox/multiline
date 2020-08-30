@@ -4,7 +4,7 @@ import 'package:test/test.dart';
 
 import 'package:multiline/multiline.dart';
 
-final List<String> _template = '''
+const String _template = '''
 
 hello world
  with space
@@ -12,21 +12,15 @@ hello world
  |
 
 2 + 2 = 4
-${'  '}'''
-    .split('\n');
+${'  '}''';
 
 void main() {
   test('shouldRun', () {
-    r'''
-    |hello world
-    '''
-        .multilineSplit()
-        .toList();
-    expect(true, true);
+    expect(() => ''.multiline(), returnsNormally);
   });
 
   test('identical', () {
-    final List<String> value = '''
+    final value = '''
     |
     |hello world
     | with space
@@ -36,14 +30,13 @@ void main() {
     |2 + 2 = 4
     |${'  '}
     '''
-        .multilineSplit()
-        .toList();
+        .multiline();
     expect(value.length, _template.length);
     expect(value, _template);
   });
 
   test('withParam', () {
-    final List<String> value = '''
+    final value = '''
     |
     |hello world
     | with space
@@ -53,35 +46,32 @@ void main() {
     |2 + 2 = ${2 + 2}
     |${'  '}
     '''
-        .multilineSplit()
-        .toList();
+        .multiline();
     expect(value.length, _template.length);
     expect(value, _template);
   });
 
   test('empty', () {
-    final List<String> value = ''.multilineSplit().toList();
+    final value = ''.multiline();
     expect(value.isEmpty, true);
-    expect(value, <String>[]);
+    expect(value, '');
   });
 
   test('notEmpty', () {
-    final List<String> value = '''
+    final value = '''
     |
     |
     '''
-        .multilineSplit()
-        .toList();
+        .multiline();
     expect(value.isNotEmpty, true);
-    expect(value, <String>['', '']);
+    expect(value, '\n');
   });
 
   test('print', () {
-    final List<String> value = '''
+    final value = '''
     |hello world
     '''
-        .multilineSplit()
-        .toList();
-    print('Print for multiline split:\n$value');
+        .multiline();
+    print('Print for multiline:\n$value');
   });
 }

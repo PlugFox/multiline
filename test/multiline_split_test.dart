@@ -1,4 +1,4 @@
-/// ignore_for_file: avoid_print, await_only_futures
+/// ignore_for_file: avoid_print
 
 import 'package:test/test.dart';
 
@@ -16,17 +16,17 @@ ${'  '}'''
     .split('\n');
 
 void main() {
-  test('shouldRun', () async {
-    await r'''
+  test('shouldRun', () {
+    '''
     |hello world
     '''
-        .multilineSplitAsync()
+        .multilineSplit()
         .toList();
     expect(true, true);
   });
 
-  test('identical', () async {
-    final List<String> value = await '''
+  test('identical', () {
+    final value = '''
     |
     |hello world
     | with space
@@ -36,14 +36,14 @@ void main() {
     |2 + 2 = 4
     |${'  '}
     '''
-        .multilineSplitAsync()
+        .multilineSplit()
         .toList();
     expect(value.length, _template.length);
     expect(value, _template);
   });
 
-  test('withParam', () async {
-    final List<String> value = await '''
+  test('withParam', () {
+    final value = '''
     |
     |hello world
     | with space
@@ -53,35 +53,35 @@ void main() {
     |2 + 2 = ${2 + 2}
     |${'  '}
     '''
-        .multilineSplitAsync()
+        .multilineSplit()
         .toList();
     expect(value.length, _template.length);
     expect(value, _template);
   });
 
-  test('empty', () async {
-    final List<String> value = await ''.multilineSplitAsync().toList();
+  test('empty', () {
+    final value = ''.multilineSplit().toList();
     expect(value.isEmpty, true);
     expect(value, <String>[]);
   });
 
-  test('notEmpty', () async {
-    final List<String> value = await '''
+  test('notEmpty', () {
+    final value = '''
     |
     |
     '''
-        .multilineSplitAsync()
+        .multilineSplit()
         .toList();
     expect(value.isNotEmpty, true);
     expect(value, <String>['', '']);
   });
 
-  test('print', () async {
-    final List<String> value = await '''
+  test('print', () {
+    final value = '''
     |hello world
     '''
-        .multilineSplitAsync()
+        .multilineSplit()
         .toList();
-    print('Print for multiline split async:\n$value');
+    print('Print for multiline split:\n$value');
   });
 }
