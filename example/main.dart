@@ -1,4 +1,4 @@
-// ignore_for_file: unused_local_variable
+// ignore_for_file: unused_local_variable, cascade_invocations, avoid_print
 
 import 'package:multiline/multiline.dart'; // <= import package
 
@@ -22,12 +22,14 @@ void main() {
     |      `books`.`title` ASC
     |;
     '''.multiline();
+  print(string);
 
   /// Splits the string and returns a [Iterable] of substrings.
   final iterable =
     '''
-    |One
-    |Two
-    |Three
+    | * One
+    | * Two
+    | * Three
     '''.multilineSplit();
+  iterable.forEach(print);
 }

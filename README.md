@@ -49,14 +49,16 @@ void main() {
     |      `books`.`title` ASC
     |;
     '''.multiline();
+  print(string);
 
   /// Splits the string and returns a [Iterable] of substrings.
   final iterable =
     '''
-    |One
-    |Two
-    |Three
+    | * One
+    | * Two
+    | * Three
     '''.multilineSplit();
+  iterable.forEach(print);
 }
 ```
   
