@@ -1,18 +1,30 @@
-# 1.0.1+1  
-##### 2020-04-25  
+## 2.0.0 - 2020-08-30  
+### Added  
+- 100% test coverage  
+- Pretty sql query example  
+- Pipeline symbol optional argument  
+- Join symbol optional argument  
   
-Disable most dev_dependencies.  
+### Changed  
+- Refactoring and new lints (pedantic + effective dart)  
+- Fast algorithm inspired by line splitter  
+  
+### Removed  
+- Redundant async methods  
   
   
-# 1.0.1  
-##### 2020-04-25  
+## 1.0.1+1 - 2020-04-25  
+### Removed  
+- Disable most dev_dependencies.  
   
-Fixed algorithm for some empty lines. 
+  
+## 1.0.1 - 2020-04-25  
+### Added  
+- Fixed algorithm for some empty lines. 
   
   
-# 1.0.0  
-##### 2020-04-25  
-  
-Initial Version of the library.  
+# 1.0.0 - 2020-04-25  
+### Added  
+- Initial Version of the library.  
   
   

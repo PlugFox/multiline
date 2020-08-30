@@ -2,9 +2,11 @@
 
 ![](https://github.com/PlugFox/multiline/raw/master/.img/logo.png)  
   
-[![chatroom icon](https://patrolavia.github.io/telegram-badge/chat.png)](https://t.me/PlugFox)
-[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/plugfox/multiline/blob/master/LICENSE)
-[![Pub](https://img.shields.io/pub/v/multiline.svg)](https://pub.dartlang.org/packages/multiline)
+[![Actions Status](https://github.com/PlugFox/multiline/workflows/multiline/badge.svg)](https://github.com/PlugFox/multiline/actions)
+[![Coverage](https://codecov.io/gh/PlugFox/multiline/branch/master/graph/badge.svg)](https://codecov.io/gh/PlugFox/multiline)
+[![Pub](https://img.shields.io/pub/v/multiline.svg)](https://pub.dev/packages/platform_info)
+[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](https://en.wikipedia.org/wiki/WTFPL)
+[![effective_dart](https://img.shields.io/badge/style-effective_dart-40c4ff.svg)](https://github.com/tenhobi/effective_dart)
   
   
 ## About  
@@ -17,51 +19,69 @@ Beautiful code formatting using some useful extensions to the String methods.
   
 Available method extensions:  
   
-  + `multiline()`           - for multiline string (don't be afraid to use, it's fast enough)  
+  + `multiline()`      - return formatted with pipeline symbol "`|`" `String`.  
   
-  + `multilineSplit()`      - to get a listing of strings  
+  + `multilineSplit()` - splits the string and returns a `Iterable<String>` of substrings.  
   
-  + `multilineAsync()`      - for asynchronously getting a multiline string  
+You can use custom "pipeline" and "join" symbols.  
   
-  + `multilineSplitAsync()` - for asynchronously getting a stream with lines  
   
-    
-### For example:  
+## For example  
   
 ```dart
-import 'package:multiline/multiline.dart';  // <= import package
+import 'package:multiline/multiline.dart'; // <= import package
 
 void main() {
-   // for multiline string (don't be afraid to use, it's fast enough)
-   final String string = '''
-   |Hello
-   |  multiline!
-   '''.multiline();
+  /// Return formatted with pipeline symbol "`|`" [String].
+  final string =
+    '''
+    |/*
+    | * List of books and the number of
+    | * authors associated with each book
+    | */
+    |SELECT
+    |      `books`.`title` AS `Title`,
+    |       count(*)       AS `Authors`
+    |FROM  `books`
+    |JOIN  `authors`
+    |  ON  `books`.`isbn` = `authors`.`isbn`
+    |GROUP BY
+    |      `books`.`title`
+    |ORDER BY
+    |      `books`.`title` ASC
+    |;
+    '''.multiline();
+  print(string);
 
-   // to get a listing of strings
-   final Iterable<String> stringIterable = '''
-   |Hello
-   |  multiline!
-   '''.multilineSplit();
-
-   // for asynchronously getting a multiline string
-   final Future<String> stringAsync = '''
-   |Hello
-   |  multiline!
-   '''.multilineAsync();
-
-   // for asynchronously getting a stream with lines
-   final Stream<String> stringStream = '''
-   |Hello
-   |  multiline!
-   '''.multilineSplitAsync();
+  /// Splits the string and returns a [Iterable] of substrings.
+  final iterable =
+    '''
+    | * One
+    | * Two
+    | * Three
+    '''.multilineSplit();
+  iterable.forEach(print);
 }
-
 ```
+  
+  
+## Coverage  
+  
+[![](https://codecov.io/gh/PlugFox/multiline/branch/dev/graphs/sunburst.svg)](https://codecov.io/gh/PlugFox/multiline/branch/master)  
   
   
 ## Changelog  
   
-Refer to the [Changelog](https://github.com/plugfox/platform_info/blob/master/CHANGELOG.md) to get all release notes.  
+Refer to the [Changelog](https://github.com/plugfox/multiline/blob/master/CHANGELOG.md) to get all release notes.  
+  
+  
+## Maintainers  
+  
+[Plague Fox](https://plugfox.dev)  
+  
+  
+## License  
+  
+[WTFPL](https://github.com/plugfox/multiline/blob/master/LICENSE)  
   
   

@@ -1,33 +1,35 @@
-// ignore_for_file: unused_local_variable
+// ignore_for_file: unused_local_variable, cascade_invocations, avoid_print
 
 import 'package:multiline/multiline.dart'; // <= import package
 
 void main() {
-  // for multiline string (don't be afraid to use, it's fast enough)
-  final String string = '''
-   |Hello
-   |  multiline!
-   '''
-      .multiline();
+  /// Return formatted with pipeline symbol "`|`" [String].
+  final string =
+    '''
+    |/*
+    | * List of books and the number of
+    | * authors associated with each book
+    | */
+    |SELECT
+    |      `books`.`title` AS `Title`,
+    |       count(*)       AS `Authors`
+    |FROM  `books`
+    |JOIN  `authors`
+    |  ON  `books`.`isbn` = `authors`.`isbn`
+    |GROUP BY
+    |      `books`.`title`
+    |ORDER BY
+    |      `books`.`title` ASC
+    |;
+    '''.multiline();
+  print(string);
 
-  // to get a listing of strings
-  final Iterable<String> stringIterable = '''
-   |Hello
-   |  multiline!
-   '''
-      .multilineSplit();
-
-  // for asynchronously getting a multiline string
-  final Future<String> stringAsync = '''
-   |Hello
-   |  multiline!
-   '''
-      .multilineAsync();
-
-  // for asynchronously getting a stream with lines
-  final Stream<String> stringStream = '''
-   |Hello
-   |  multiline!
-   '''
-      .multilineSplitAsync();
+  /// Splits the string and returns a [Iterable] of substrings.
+  final iterable =
+    '''
+    | * One
+    | * Two
+    | * Three
+    '''.multilineSplit();
+  iterable.forEach(print);
 }
