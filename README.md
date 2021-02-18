@@ -4,7 +4,7 @@
   
 [![Actions Status](https://github.com/PlugFox/multiline/workflows/multiline/badge.svg)](https://github.com/PlugFox/multiline/actions)
 [![Coverage](https://codecov.io/gh/PlugFox/multiline/branch/master/graph/badge.svg)](https://codecov.io/gh/PlugFox/multiline)
-[![Pub](https://img.shields.io/pub/v/multiline.svg)](https://pub.dev/packages/platform_info)
+[![Pub](https://img.shields.io/pub/v/multiline.svg)](https://pub.dev/packages/multiline)
 [![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](https://en.wikipedia.org/wiki/WTFPL)
 [![effective_dart](https://img.shields.io/badge/style-effective_dart-40c4ff.svg)](https://github.com/tenhobi/effective_dart)
   

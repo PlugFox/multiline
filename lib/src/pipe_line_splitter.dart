@@ -4,7 +4,7 @@ const int _cr = 13; // /r
 
 /// Split lines into individual lines.
 Iterable<String> pipeLineSplitter(String lines, {String pipeline = '|'}) sync* {
-  final _vt = (pipeline?.isEmpty ?? true ? '|' : pipeline).codeUnitAt(0); // |
+  final _vt = (pipeline.isEmpty ? '|' : pipeline).codeUnitAt(0); // |
   final length = lines.length;
   var sliceStart = 0;
   var char = 0;
