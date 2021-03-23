@@ -5,8 +5,12 @@
 [![Actions Status](https://github.com/PlugFox/multiline/workflows/multiline/badge.svg)](https://github.com/PlugFox/multiline/actions)
 [![Coverage](https://codecov.io/gh/PlugFox/multiline/branch/master/graph/badge.svg)](https://codecov.io/gh/PlugFox/multiline)
 [![Pub](https://img.shields.io/pub/v/multiline.svg)](https://pub.dev/packages/multiline)
+[![Likes](https://img.shields.io/badge/dynamic/json?color=blue&label=likes&query=likes&url=http://www.pubscore.gq/likes?package=multiline&style=flat-square&cacheSeconds=90000)](https://pub.dev/packages/multiline)
+[![Health](https://img.shields.io/badge/dynamic/json?color=blue&label=health&query=pub_points&url=http://www.pubscore.gq/pub-points?package=multiline&style=flat-square&cacheSeconds=90000)](https://pub.dev/packages/multiline/score)
+[![Code size](https://img.shields.io/github/languages/code-size/plugfox/multiline?logo=github&logoColor=white)](https://github.com/plugfox/multiline)
 [![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](https://en.wikipedia.org/wiki/WTFPL)
 [![effective_dart](https://img.shields.io/badge/style-effective_dart-40c4ff.svg)](https://github.com/tenhobi/effective_dart)
+[![GitHub stars](https://img.shields.io/github/stars/PlugFox/multiline?style=social)](https://github.com/PlugFox/multiline/)  
   
   
 ## About  
