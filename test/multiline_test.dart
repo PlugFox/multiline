@@ -1,8 +1,7 @@
-/// ignore_for_file: avoid_print
-
-import 'package:test/test.dart';
+// ignore_for_file: avoid_print
 
 import 'package:multiline/multiline.dart';
+import 'package:test/test.dart';
 
 const String _template = '''
 
@@ -29,7 +28,8 @@ void main() {
     |
     |2 + 2 = 4
     |${'  '}
-    '''.multiline();
+    '''
+        .multiline();
     expect(value.length, _template.length);
     expect(value, _template);
   });
@@ -44,7 +44,8 @@ void main() {
     |
     |2 + 2 = ${2 + 2}
     |${'  '}
-    '''.multiline();
+    '''
+        .multiline();
     expect(value.length, _template.length);
     expect(value, _template);
   });
@@ -59,7 +60,8 @@ void main() {
     final value = '''
     |
     |
-    '''.multiline();
+    '''
+        .multiline();
     expect(value.isNotEmpty, isTrue);
     expect(value, '\n');
   });
@@ -68,7 +70,8 @@ void main() {
     final value = '''
     |1\n|2
     |3\n|4
-    '''.multiline();
+    '''
+        .multiline();
     expect(value, '1\n2\n3\n4');
   });
 
@@ -76,7 +79,8 @@ void main() {
     final value = '''
     |1\r\n|2
     |3\r\n|4
-    '''.multiline();
+    '''
+        .multiline();
     expect(value, '1\n2\n3\n4');
   });
 
@@ -84,7 +88,8 @@ void main() {
     final value = '''
     |1\r|2
     |3\r|4
-    '''.multiline();
+    '''
+        .multiline();
     expect(value, '1\n2\n3\n4');
   });
 
@@ -94,17 +99,20 @@ void main() {
     |2
     |3
     line without pipe
-    '''.multiline();
+    '''
+        .multiline();
     expect(int.parse(value.split('\n').last), 3);
   });
 
   test('Same multiline string', () {
     final value1 = '''1 '''.multiline();
     final value2 = '''
-    |1 '''.multiline();
+    |1 '''
+        .multiline();
     // ignore: leading_newlines_in_multiline_strings
     final value3 = '''1
-    | '''.multiline();
+    | '''
+        .multiline();
     final value4 = '''|1 '''.multiline();
 
     expect(value1, '');
@@ -123,14 +131,16 @@ void main() {
     /a
     /b
     /c
-    '''.multiline(pipeline: '/', join: ',');
+    '''
+        .multiline(pipeline: '/', join: ',');
     expect(value, 'a,b,c');
   });
 
   test('print', () {
     final value = '''
     |hello world
-    '''.multiline();
+    '''
+        .multiline();
     expect(
       () => print('Print for multiline split:\n$value'),
       returnsNormally,
