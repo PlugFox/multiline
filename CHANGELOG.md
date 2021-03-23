@@ -1,6 +1,7 @@
 ## 3.0.0-nullsafety.1 - 2021-03-24
 ### Added  
 - Some badges  
+- Large string example  
   
   
 ## 3.0.0-nullsafety.0 - 2021-02-19
