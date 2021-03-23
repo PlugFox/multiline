@@ -8,7 +8,7 @@ import 'pipe_line_splitter.dart';
 /// beginning of a line.
 /// Beautiful code formatting using some useful
 /// extensions to the String methods.
-extension MultilineString on String {
+extension MultilineStringX on String {
   /// Return formatted with pipeline symbol "`|`" [String].
   String multiline({String pipeline = '|', String join = '\n'}) =>
       pipeLineSplitter(this, pipeline: pipeline).join(join);
