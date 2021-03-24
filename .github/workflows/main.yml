@@ -2,9 +2,9 @@ name: multiline
 
 on:
   push:
-    branches: [ master, dev, feature/null_safety ]
+    branches: [ master, develop ]
   pull_request:
-    branches: [ master, dev, feature/null_safety ]
+    branches: [ master, develop ]
 
 jobs:
   build:
