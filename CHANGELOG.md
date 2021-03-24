@@ -1,6 +1,13 @@
+## 3.0.0-nullsafety.1 - 2021-03-24
+### Added  
+- Some badges  
+- Large string example  
+- `multilineStream` generator  
+  
+  
 ## 3.0.0-nullsafety.0 - 2021-02-19
 ### Changed  
-- Non nullable ready  
+- Non nullable ready   
   
   
 ## 2.0.0 - 2020-08-30  
