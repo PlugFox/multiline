@@ -1,4 +1,5 @@
 import 'pipe_line_splitter.dart';
+import 'pipe_line_stream.dart';
 
 /// Provides convenient access to multiline String
 /// records with method extensions.
@@ -17,4 +18,9 @@ extension MultilineStringX on String {
   /// and returns a [Iterable] of substrings.
   Iterable<String> multilineSplit({String pipeline = '|'}) =>
       pipeLineSplitter(this, pipeline: pipeline);
+
+  /// Split lines into individual lines
+  /// and returns a [Stream] of substrings.
+  Stream<String> multilineStream({String pipeline = '|'}) =>
+      pipeLineStream(this, pipeline: pipeline);
 }

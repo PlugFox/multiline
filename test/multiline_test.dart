@@ -50,6 +50,23 @@ void main() {
     expect(value, _template);
   });
 
+  test('multilineStream', () async {
+    final value = await '''
+    |
+    |hello world
+    | with space
+    ||
+    | |
+    |
+    |2 + 2 = ${2 + 2}
+    |${'  '}
+    '''
+        .multilineStream()
+        .join('\n');
+    expect(value.length, _template.length);
+    expect(value, _template);
+  });
+
   test('empty', () {
     final value = ''.multiline();
     expect(value.isEmpty, isTrue);

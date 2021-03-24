@@ -1,7 +1,7 @@
 // ignore_for_file: unused_local_variable, cascade_invocations, avoid_print
 import 'package:multiline/multiline.dart';
 
-void main() {
+Future<void> main() async {
   print('Source string: ${_largeString.length} symbols');
   // Source string: 214971 symbols
   final stopwatch = Stopwatch()..start();
@@ -11,6 +11,9 @@ void main() {
   final multilineSplitResult = _largeString.multilineSplit().last;
   print('Multiline split result: ${stopwatch.elapsedMilliseconds} ms');
   // Multiline split result: 14 ms
+  final multilineStreamResult = await _largeString.multilineStream().last;
+  print('Multiline stream result: ${stopwatch.elapsedMilliseconds} ms');
+  // Multiline stream result: 54 ms
   stopwatch.stop();
 }
 

@@ -2,6 +2,7 @@
 ### Added  
 - Some badges  
 - Large string example  
+- `multilineStream` generator  
   
   
 ## 3.0.0-nullsafety.0 - 2021-02-19
