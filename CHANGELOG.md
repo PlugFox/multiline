@@ -1,11 +1,17 @@
-## 3.0.0-nullsafety.1 - 2021-03-24
+## 3.0.0 - 2021-03-27  
+### Changed  
+- Refactoring  
+- Null safety ready  
+  
+  
+## 3.0.0-nullsafety.1 - 2021-03-24  
 ### Added  
 - Some badges  
 - Large string example  
 - `multilineStream` generator  
   
   
-## 3.0.0-nullsafety.0 - 2021-02-19
+## 3.0.0-nullsafety.0 - 2021-02-19  
 ### Changed  
 - Non nullable ready   
   

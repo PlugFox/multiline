@@ -1,7 +1,7 @@
 name: multiline
 description: >
   Provides convenient access to multiline String records with method extensions.
-version: 3.0.0-nullsafety.1
+version: 3.0.0
 repository: https://github.com/PlugFox/multiline/tree/master
 issue_tracker: https://github.com/PlugFox/multiline/issues
 homepage: https://github.com/PlugFox/multiline
@@ -11,7 +11,7 @@ homepage: https://github.com/PlugFox/multiline
 #publish_to: 'none' 
 
 environment:
-  sdk: ">=2.12.0-0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dev_dependencies:
   coverage: ^0.14.2
