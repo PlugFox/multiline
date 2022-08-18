@@ -69,7 +69,7 @@ void main() {
   
 ## Coverage  
   
-[![](https://codecov.io/gh/PlugFox/multiline/branch/dev/graphs/sunburst.svg)](https://codecov.io/gh/PlugFox/multiline/branch/master)  
+[![](https://codecov.io/gh/PlugFox/multiline/branch/master/graphs/sunburst.svg)](https://codecov.io/gh/PlugFox/multiline/branch/master)  
   
   
 ## Changelog  
